@@ -4,8 +4,8 @@ import sys
 f = 'input_day4.txt'
 
 count = sum(
-    [
-        1 if (
+    [   
+        (
             (
                 assignments[0] >= assignments[2] 
                 and 
@@ -16,8 +16,8 @@ count = sum(
                 assignments[0] <= assignments[2] 
                 and 
                 assignments[1] >= assignments[3]
-            ) 
-        ) else 0 
+            )  
+        )
         for assignments in 
         [
             list(
