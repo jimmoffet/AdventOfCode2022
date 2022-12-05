@@ -3,7 +3,7 @@ import sys
 
 f = 'input_day4.txt'
 
-count = sum([1 if ((lst[0] >= lst[2] and lst[1] <= lst[3]) or (lst[0] <= lst[2] and lst[1] >= lst[3]) ) else 0 for lst in [list(map(int, line.replace("-",",").split(","))) for line in open(f,'r').read().splitlines()]])
+count = sum([1 if ((assignments[0] >= assignments[2] and assignments[1] <= assignments[3]) or (assignments[0] <= assignments[2] and assignments[1] >= assignments[3]) ) else 0 for assignments in [list(map(int, line.replace("-",",").split(","))) for line in open(f,'r').read().splitlines()]])
 
 print(f'count: {count}')
 
@@ -27,7 +27,6 @@ def get_variance(f1, f2, iter):
     return abs((input_time_n / input_time_n_expected) - 1) 
 
 variance = get_variance(f1, f2, 100)
-print(f'Variance is {variance}')
 result = "Yay!" if variance < 0.50 else "Boo!"
 print(f'Variance is {variance:.2%} {result}')
 
