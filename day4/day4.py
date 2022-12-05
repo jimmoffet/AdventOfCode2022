@@ -21,7 +21,10 @@ count = sum(
         for assignments in 
         [
             list(
-                map(int, line.replace("-",",").split(","))
+                map(
+                    int, 
+                    line.replace("-",",").split(",")
+                )
             ) 
             for line in open(f,'r').read().splitlines()
         ]
