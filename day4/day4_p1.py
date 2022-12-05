@@ -3,7 +3,30 @@ import sys
 
 f = 'input_day4.txt'
 
-count = sum([1 if ((assignments[0] >= assignments[2] and assignments[1] <= assignments[3]) or (assignments[0] <= assignments[2] and assignments[1] >= assignments[3]) ) else 0 for assignments in [list(map(int, line.replace("-",",").split(","))) for line in open(f,'r').read().splitlines()]])
+count = sum(
+    [
+        1 if (
+            (
+                assignments[0] >= assignments[2] 
+                and 
+                assignments[1] <= assignments[3]
+            ) 
+            or 
+            (
+                assignments[0] <= assignments[2] 
+                and 
+                assignments[1] >= assignments[3]
+            ) 
+        ) else 0 
+        for assignments in 
+        [
+            list(
+                map(int, line.replace("-",",").split(","))
+            ) 
+            for line in open(f,'r').read().splitlines()
+        ]
+    ]
+)
 
 print(f'count: {count}')
 
@@ -11,8 +34,8 @@ print(f'count: {count}')
 # Check that we're within 50% of the expected time for O(n) runtime
 ###################################################################
 
-def oneline_sans_file_open(inp4):
-    return sum([1 if ((assignments[0] >= assignments[2] and assignments[1] <= assignments[3]) or (assignments[0] <= assignments[2] and assignments[1] >= assignments[3]) ) else 0 for assignments in [list(map(int, line.replace("-",",").split(","))) for line in inp4 ]])
+def oneline_sans_file_open(input):
+    return sum([1 if ((assignments[0] >= assignments[2] and assignments[1] <= assignments[3]) or (assignments[0] <= assignments[2] and assignments[1] >= assignments[3]) ) else 0 for assignments in [list(map(int, line.replace("-",",").split(","))) for line in input ]])
 
 n = open(f,'r').read().splitlines()
 scalar = 10
