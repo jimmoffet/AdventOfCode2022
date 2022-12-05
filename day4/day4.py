@@ -3,9 +3,9 @@ import sys
 
 f = 'input_day4.txt'
 
-oneline_count = sum([1 if ((lst[0] >= lst[2] and lst[1] <= lst[3]) or (lst[0] <= lst[2] and lst[1] >= lst[3]) ) else 0 for lst in [list(map(int, line.replace("-",",").split(","))) for line in open(f,'r').read().splitlines()]])
+count = sum([1 if ((lst[0] >= lst[2] and lst[1] <= lst[3]) or (lst[0] <= lst[2] and lst[1] >= lst[3]) ) else 0 for lst in [list(map(int, line.replace("-",",").split(","))) for line in open(f,'r').read().splitlines()]])
 
-print(f'oneline_count: {oneline_count}')
+print(f'count: {count}')
 
 ###################################################################
 # Check that we're within 50% of the expected time for O(n) runtime
