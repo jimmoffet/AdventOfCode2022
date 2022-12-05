@@ -12,7 +12,7 @@ print(f'count: {count}')
 ###################################################################
 
 def oneline_sans_file_open(inp4):
-    return sum([1 if ((lst[0] >= lst[2] and lst[1] <= lst[3]) or (lst[0] <= lst[2] and lst[1] >= lst[3]) ) else 0 for lst in [list(map(int, line.replace("-",",").split(","))) for line in inp4 ]])
+    return sum([1 if ((assignments[0] >= assignments[2] and assignments[1] <= assignments[3]) or (assignments[0] <= assignments[2] and assignments[1] >= assignments[3]) ) else 0 for assignments in [list(map(int, line.replace("-",",").split(","))) for line in inp4 ]])
 
 n = open(f,'r').read().splitlines()
 scalar = 10
