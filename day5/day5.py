@@ -56,13 +56,13 @@ top_crates = lambda f : [
 
 print(f'top_crates: {top_crates(f)}')
 
-# NOTE: the ridiculous (s.update() != s.update()) which results in None != None, which evaluates to False, to force the lambda to return the updated dict s
+# NOTE: the ridiculous ((_stacks_dict.update() != _stacks_dict.update()) or _stacks_dict) which results in None != None, which evaluates to False, to trigger to OR condition to force the lambda to return the updated dict
 # NOTE: parsing this input and operating on it in one line was... not a great developer experience
-# NOTE: refactor moves as simple lists/tuples
-# NOTE: o is the whole input
-# NOTE: None is a bit of a hack, would be cool to be able to use something like continue in a list comprehension
+# NOTE: to self, refactor moves as simple lists/tuples, edit: hahaha, I'm done with this madness
+# NOTE: using instruction line-numbers this way has very old school Goto vibes
+# NOTE: None values for empty input lines is a bit of a hack, would be cool to be able to use something like continue in a list comprehension
 # NOTE: enumerate(open()) to the rescue! Now I can parse and operate on the input in one line! :goto-10: :goto-10: :goto-10:
-# NOTE: I do like that this one-liner constraint imposes quite a bit of ritual each day...
+# NOTE: I do like that this one-liner constraint imposes quite a bit of ritual at the beginning of each day...
 
 ###################################################################
 # Check that we're within 50% of the expected time for O(n) runtime
