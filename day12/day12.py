@@ -31,12 +31,12 @@ steps = [
             ([
                 [
                     ( 
-                        tuple(map(sum, zip(*start_end_array[0]))), 
-                        tuple(map(sum, zip(*start_end_array[1]))), 
-                        np.array(start_end_array[2]) 
+                        tuple(map(sum, zip(*start))), 
+                        tuple(map(sum, zip(*end))), 
+                        np.array(array) 
                     ) 
-                    for start_end_array in 
-                    (list(
+                    for start, end, array in 
+                    tuple(
                         map(list, zip(*[
                             ( 
                                 ((i, line.index('S')) if 'S' in line else (0,0)),
@@ -45,7 +45,7 @@ steps = [
                             )
                             for i, line in enumerate(open(f,'r').read().splitlines())
                         ]))
-                    ),) # one item tuple
+                    )
                 ][0]
             ][0],) # one item tuple
         ]
