@@ -31,11 +31,11 @@ steps = [
             ([
                 [
                     ( 
-                        tuple(map(sum, zip(*Scoord_Ecoord_array[0]))), 
-                        tuple(map(sum, zip(*Scoord_Ecoord_array[1]))), 
-                        np.array(Scoord_Ecoord_array[2]) 
+                        tuple(map(sum, zip(*start_end_array[0]))), 
+                        tuple(map(sum, zip(*start_end_array[1]))), 
+                        np.array(start_end_array[2]) 
                     ) 
-                    for Scoord_Ecoord_array in 
+                    for start_end_array in 
                     (list(
                         map(list, zip(*[
                             ( 
