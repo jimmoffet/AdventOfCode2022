@@ -33,9 +33,9 @@ steps = [
                     ( 
                         tuple(map(sum, zip(*start_coord_pairs))), 
                         tuple(map(sum, zip(*end_coord_pairs))), 
-                        np.array(array) 
+                        np.array(array2D) 
                     ) 
-                    for start_coord_pairs, end_coord_pairs, array in 
+                    for start_coord_pairs, end_coord_pairs, array2D in 
                     (list(
                         map(list, zip(*[
                             ( 
