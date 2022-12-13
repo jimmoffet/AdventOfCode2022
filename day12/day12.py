@@ -3,11 +3,12 @@ import matplotlib.pyplot as plt
 from random import randint
 import numpy as np
 import sys
+import timeit
 
-# f = 'day12_test.txt'
-f = 'day12.txt'
+f = 'day12_test.txt'
+# f = 'day12.txt'
 
-steps = [
+steps = lambda f : (next(
     nx.shortest_path_length(G, source=start_coords, target=end_coords) 
     for start_coords, end_coords, G in 
     [
@@ -41,6 +42,27 @@ steps = [
             ]))
         ),) # one item tuple
     ]
-][0]
+))
 
-print(f'shortest path length: {steps}')
+print(f'shortest path length: {steps(f)}')
+
+###################################################################
+# Check that we're within 50% of the expected time for O(n) runtime
+###################################################################
+
+scaling_factor = 4 # scaled input matrix in Y/height/rows direction
+f = 'day12.txt'
+input_scaled = 'day12_scaled.txt'
+f1 = 'steps(f)'
+f2 = 'steps(input_scaled)'
+
+def get_variance(f1, f2, iter):
+    input_time_n = timeit.timeit(f1, number=iter, globals=globals())
+    input_time_n_scaled = timeit.timeit(f2, number=iter, globals=globals())
+    input_time_n_expected = input_time_n_scaled / scaling_factor
+    return (input_time_n / input_time_n_expected) - 1
+
+variance = get_variance(f1, f2, 10)
+result = "Yay!" if variance < 0.50 else "Boo!"
+print(f'Variance is {variance:.2%} {result}')
+
