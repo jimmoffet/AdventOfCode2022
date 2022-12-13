@@ -36,7 +36,7 @@ steps = [
                         np.array(array) 
                     ) 
                     for start, end, array in 
-                    tuple(
+                    (list(
                         map(list, zip(*[
                             ( 
                                 ((i, line.index('S')) if 'S' in line else (0,0)),
@@ -45,7 +45,7 @@ steps = [
                             )
                             for i, line in enumerate(open(f,'r').read().splitlines())
                         ]))
-                    )
+                    ),) # one item tuple
                 ][0]
             ][0],) # one item tuple
         ]
