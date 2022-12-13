@@ -63,6 +63,6 @@ def get_variance(f1, f2, iter):
     return (input_time_n / input_time_n_expected) - 1
 
 variance = get_variance(f1, f2, 10)
-result = "Yay!" if variance < 0.50 else "Boo!"
+result = "Yay!" if variance > -0.50 else "Boo!"
 print(f'Variance is {variance:.2%} {result}')
 
